@@ -24,7 +24,7 @@ enemy = Player()
 enemy_hp = 100
 enemy_stamina = 0
 
-ready = input ("Ready to battle? Press ENTER to Continue")
+ready = input ("Press ENTER to Continue")
 name = input ("Enter your Name: ")
 
 
