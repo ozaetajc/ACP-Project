@@ -1,5 +1,5 @@
 import random
-
+import time
 
 class Player():
     def normal_atk(self):
