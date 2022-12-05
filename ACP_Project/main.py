@@ -35,3 +35,15 @@ def first_turn():
     else:
         return name
 turn = first_turn()
+
+while player_hp > 0 and anemy_hp > 0
+    print (f"\n{turn}'s turn")
+    if turn != 'Enemy':
+        action = int(input(f"{name}, What will you do:\n1) Normal Attack\n2) Burst Attack\n3) Regen\n"))
+    if action == 1:
+        player_normal_attack = player.normal_atk()
+        enemy_hp = enemy_hp - player_normal_attack
+        player_stamina += 10
+        time.sleep(2)
+
+    
