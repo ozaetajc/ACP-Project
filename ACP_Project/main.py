@@ -2,7 +2,11 @@ import random
 import time
 import pygame
 from pygame import mixer
-pygame.mixer.int()
+pygame.mixer.init()
+
+ATTACK_SOUND = pygame.mixer.Sound ('sound.mp3')
+BURST_SOUND = pygame.mixer.Sound ('burst.mp3')
+HEAL_SOUND = pygame.mixer.Sound ('heal.wav')
 
 class Player():
     def normal_atk(self):
@@ -28,6 +32,9 @@ enemy_hp = 100
 enemy_stamina = 0
 
 ready = input ("Press ENTER to Continue")
+mixer.init()
+mixer.music.load("bgm.mp3")
+mixer.music.play()
 name = input ("Enter your Name: ")
 
 
@@ -39,6 +46,7 @@ def first_turn():
         return name
 turn = first_turn()
 
+
 while player_hp > 0 and enemy_hp > 0
     print (f"\n{turn}'s turn")
     if turn != 'Enemy':
@@ -49,6 +57,7 @@ while player_hp > 0 and enemy_hp > 0
         player_stamina += 10
         time.sleep(2)
         print (f"\n{name} just did {player_normal_attack} damage!")
+        ATTACK_SOUND.play()
         print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
         time.sleep(2)
         print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
@@ -60,6 +69,7 @@ while player_hp > 0 and enemy_hp > 0
         player_stamina -= 20
         time.sleep(2)
         print (f"\n{name} just did {player_burst_attack} damage!")
+        BURST_SOUND.play()
         print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
         ime.sleep(2)
         print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
@@ -71,6 +81,7 @@ while player_hp > 0 and enemy_hp > 0
         player_stamina -= 15
         time.sleep(2)
         print (f"\n{name} regenerated {player_regenerate} hp")
+        HEAL_SOUND.play()
         print (f"{name} has {player_hp} hp and {player_stamina} stamina")
         turn = 'Enemy'
 
@@ -87,6 +98,7 @@ else:
         enemy_stamina -= 20
         time.sleep(2)
         print (f"\n The enemy just did {enemy_burst_attack} damage!")
+        BURST_SOUND.play()
         print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
         time.sleep(2)
         print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
@@ -98,6 +110,7 @@ elif enemy_hp < 50 and enemy_stamina >= 15:
             enemy_stamina -= 15
             time.sleep(2)
             print (f"\nThe enemy healed for {enemy_regenerate} hp!")
+            HEAL_SOUND.play()
             print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
             time.sleep(2)
             print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
@@ -109,6 +122,7 @@ elif enemy_hp < 50 and enemy_stamina >= 15:
             enemy_stamina += 10
             time.sleep(2)
             print (f"\nEnemy just did {enemy_norm_attack} damage!")
+            ATTACK_SOUND.play()
             print (f"\n{name} now has {player_hp} hp and {player_stamina} stamina")
             print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
             turn = name
@@ -116,6 +130,6 @@ elif enemy_hp < 50 and enemy_stamina >= 15:
 if player_hp <=0:
     print ("You Lost.")
 elif enemy_hp <=0:
-    print (f"\n{name}, you have won!")
+    print (f"\n{name}, you won!")
 
 
