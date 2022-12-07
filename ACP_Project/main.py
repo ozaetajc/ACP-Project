@@ -46,11 +46,11 @@ def first_turn():
         return name
 turn = first_turn()
 
-def slowprint(grim):
-    for Z in grim + '\n':
-        sys.stdout.write(Z)
+def slowprint(reaper):
+    for symbols in reaper + '\n':
+        sys.stdout.write(symbols)
         sys.stdout.flush()
-        time.sleep(1/900)
+        time.sleep(1/500)
         
 print ('')
 print ('')
@@ -115,31 +115,32 @@ while player_hp > 0 and enemy_hp > 0
         print (f"\n{name} your stamina is too low, recharge by doing Normal Attack ")
     else:
         print ("Enter a correct Action")
-
+        
+        
 else:
-    if enemy_stamina >= 20:
-        enemy_burst_attack = enemy.burst_atk()
-        player_hp = player_hp - enemy_burst_attack
-        enemy_stamina -= 20
-        time.sleep(2)
-        print (f"\n The enemy just did {enemy_burst_attack} damage!")
-        BURST_SOUND.play()
-        print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
-        time.sleep(2)
-        print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
-        turn = name
-
-elif enemy_hp < 50 and enemy_stamina >= 15:
-            enemy_regenerate = enemy.heal()
-            enemy_hp += enemy_regenerate
-            enemy_stamina -= 15
-            time.sleep(2)
-            print (f"\nThe enemy healed for {enemy_regenerate} hp!")
+       if enemy_hp < 50 and enemy_stamina >= 15:
+            enemy_regenerate = enemy.heal()
+            enemy_hp += enemy_regenerate
+            enemy_stamina -= 15
+            time.sleep(2)
+            print (f"\nThe enemy healed for {enemy_regenerate} hp!")
             HEAL_SOUND.play()
-            print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
-            time.sleep(2)
-            print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
-            turn = name
+            print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
+            time.sleep(2)
+            print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
+            turn = name
+
+       elif enemy_stamina >= 20:
+            enemy_burst_attack = enemy.burst_atk()
+            player_hp = player_hp - enemy_burst_attack
+            enemy_stamina -= 20
+            time.sleep(2)
+            print (f"\n The enemy just did {enemy_burst_attack} damage!")
+            BURST_SOUND.play()
+            print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
+            time.sleep(2)
+            print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
+            turn = name
 
         else:
             enemy_norm_attack = enemy.normal_atk()
