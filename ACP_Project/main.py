@@ -1,5 +1,6 @@
 import random
 import time
+import sys
 import pygame
 from pygame import mixer
 pygame.mixer.init()
@@ -20,7 +21,6 @@ class Player():
     def heal(self):
         regeneration = random.randint(5, 20)
         return regeneration
-
 
 
 player = Player()
@@ -45,6 +45,31 @@ def first_turn():
     else:
         return name
 turn = first_turn()
+
+def slowprint(grim):
+    for Z in grim + '\n':
+        sys.stdout.write(Z)
+        sys.stdout.flush()
+        time.sleep(1/900)
+        
+print ('')
+print ('')
+slowprint ('             *********')
+slowprint ('           *************')
+slowprint ('          *****     *****')
+slowprint ('         ***     ✡     ***')
+slowprint ('        ***             ***')
+slowprint ('        **    0     0    **')
+slowprint ('        **               **                  ____')
+slowprint ('        ***             ***             //////////')
+slowprint ('        ****           ****        ///////////////  ')
+slowprint ('        *****         *****    ///////////////////')
+slowprint ('        ******       ******/////////         |  |')
+slowprint ('      *********     ****//////               |  |')
+slowprint ('     ***********   **/////*****              |  |')
+slowprint ('  *************** **///***********        ***|  |*')
+slowprint (' ******************/****************    *****| <=>*')
+slowprint (' ********************************************|<===>* ')
 
 
 while player_hp > 0 and enemy_hp > 0
