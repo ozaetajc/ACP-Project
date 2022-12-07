@@ -89,4 +89,30 @@ else:
         print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
         turn = name
 
+elif enemy_hp < 50 and enemy_stamina >= 15:
+            enemy_regenerate = enemy.heal()
+            enemy_hp += enemy_regenerate
+            enemy_stamina -= 15
+            time.sleep(2)
+            print (f"\nThe enemy healed for {enemy_regenerate} hp!")
+            print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
+            time.sleep(2)
+            print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
+            turn = name
+
+        else:
+            enemy_norm_attack = enemy.normal_atk()
+            player_hp = player_hp - enemy_norm_attack
+            enemy_stamina += 10
+            time.sleep(2)
+            print (f"\nEnemy just did {enemy_norm_attack} damage!")
+            print (f"\n{name} now has {player_hp} hp and {player_stamina} stamina")
+            print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
+            turn = name
+
+if player_hp <=0:
+    print ("You Lost.")
+elif enemy_hp <=0:
+    print (f"\n{name}, you have won!")
+
 
