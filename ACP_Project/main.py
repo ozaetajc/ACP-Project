@@ -1,5 +1,8 @@
 import random
 import time
+import pygame
+from pygame import mixer
+pygame.mixer.int()
 
 class Player():
     def normal_atk(self):
