@@ -15,5 +15,3 @@ Required:
 • Python 3.10.0
 
 • pygame
-
-• To install pygame (VSCode) u can type -pip install pygame
