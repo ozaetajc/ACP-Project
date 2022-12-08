@@ -21,13 +21,18 @@ class Player():
     def heal(self):
         regeneration = random.randint(5, 20)
         return regeneration
+    
 
+class Enemy(Player): #Inherits Player class
+    def gather(self):
+        gather = random.randint(4, 8)
+        return gather
 
 player = Player()
 player_hp = 100
 player_stamina = 0
 
-enemy = Player()
+enemy = Enemy()
 enemy_hp = 100
 enemy_stamina = 0
 
@@ -124,6 +129,18 @@ else:
             enemy_stamina -= 15
             time.sleep(2)
             print (f"\nThe enemy healed for {enemy_regenerate} hp!")
+            HEAL_SOUND.play()
+            print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
+            time.sleep(2)
+            print (f"The enemy now has {enemy_hp} hp and {enemy_stamina} stamina")
+            turn = name
+            
+       elif enemy_stamina <= 10:
+            gather_stamina = enemy.gather()
+            enemy_stamina = enemy_stamina + gather_stamina
+            player_hp = player_hp - gather_stamina
+            time.sleep(2)
+            print (f"\nThe enemy gathered {gather_stamina} stamina in exchange for your hp!")
             HEAL_SOUND.play()
             print (f"{name} now has {player_hp} hp and {player_stamina} stamina")
             time.sleep(2)
