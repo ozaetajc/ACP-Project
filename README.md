@@ -9,8 +9,8 @@
   <ol>
     <li><a href="#general-info"> ➤ General Info</a></li>
     <li><a href="#game-description"> ➤ Game Description</a></li>
-    <li><a href="#required"> ➤ Required</a></li>
     <li><a href="#in-our-program"> ➤ In Our Program</a></li>
+    <li><a href="#required"> ➤ Required</a></li>
   </ol>
 </details>
 
