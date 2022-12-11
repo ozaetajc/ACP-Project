@@ -25,7 +25,7 @@ class Player():
 
 class Enemy(Player): #Inherits Player class
     def gather(self):
-        gather = random.randint(4, 8)
+        gather = random.randint(5, 12)
         return gather
 
 player = Player()
